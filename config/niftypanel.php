@@ -1,6 +1,13 @@
 <?php
 
 return [
+
+    //
+    'order' => [
+        'by' => 'DESC',
+        'as' => 'created_at',
+    ],
+
     'timezone' => 'UTC',
     'locale' => 'es',
 
@@ -24,6 +31,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
         ],
+    ],
+
+    'mysql' => [
+        'charset' => 'utf8',
+        'collation' => 'utf8_general_ci',
     ],
 
 ];

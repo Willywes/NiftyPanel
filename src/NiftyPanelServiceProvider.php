@@ -63,48 +63,48 @@ class NiftyPanelServiceProvider extends ServiceProvider
 
         // Publishing the exceptions.
         $this->publishes([
-            __DIR__.'/Install/Exceptions' => base_path('app/Exceptions'),
+            __DIR__.'/../Install/Exceptions' => base_path('app/Exceptions'),
         ], 'niftypanel.install');
 
         // Publishing the controllers.
         $this->publishes([
-            __DIR__.'/Install/Controllers' => base_path('app/Http/Controllers'),
+            __DIR__.'/../Install/Controllers' => base_path('app/Http/Controllers'),
         ], 'niftypanel.install');
 
         // Publishing the middleware.
         $this->publishes([
-            __DIR__.'/Install/Middleware' => base_path('app/Http/Middleware'),
+            __DIR__.'/../Install/Middleware' => base_path('app/Http/Middleware'),
         ], 'niftypanel.install');
 
         // Publishing the middleware.
         $this->publishes([
-            __DIR__.'/Install/Providers/' => base_path('app/Providers'),
+            __DIR__.'/../Install/Providers/' => base_path('app/Providers'),
         ], 'niftypanel.install');
 
         // Publishing the models.
         $this->publishes([
-            __DIR__.'/Install/Models' => base_path('app/Models'),
+            __DIR__.'/../Install/Models' => base_path('app/Models'),
         ], 'niftypanel.install');
 
         // Publishing the views.
         $this->publishes([
-            __DIR__.'/Install/Views' => base_path('resources'),
+            __DIR__.'/../Install/Views' => base_path('resources'),
         ], 'niftypanel.install');
 
         // Publishing the datatabase.
         $this->publishes([
-            __DIR__.'/Install/Database' => base_path('database'),
+            __DIR__.'/../Install/Database' => base_path('database'),
         ], 'niftypanel.install');
 
         // Publishing the datatabase.
         $this->publishes([
-            __DIR__.'/Install/Routes' => base_path('routes'),
+            __DIR__.'/../Install/Routes' => base_path('routes'),
         ], 'niftypanel.install');
 
         // Publishing the assets.
-//        $this->publishes([
-//            __DIR__.'/Install/Assets' => public_path('/'),
-//        ], 'niftypanel.install');
+        $this->publishes([
+            __DIR__.'/../Install/Assets' => public_path('/'),
+        ], 'niftypanel.install');
 
     }
 }
