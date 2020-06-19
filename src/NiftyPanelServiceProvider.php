@@ -13,10 +13,10 @@ class NiftyPanelServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'willywes');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'willywes');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+//         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'resources/lang');
+//         $this->loadViewsFrom(__DIR__.'/../resources/views', 'resources/views');
+//         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+//         $this->loadRoutesFrom(__DIR__.'/../routes/intranet.php');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -59,39 +59,52 @@ class NiftyPanelServiceProvider extends ServiceProvider
         // Publishing the configuration file.
         $this->publishes([
             __DIR__.'/../config/niftypanel.php' => config_path('niftypanel.php'),
-        ], 'niftypanel.config');
+        ], 'niftypanel.install');
+
+        // Publishing the exceptions.
+        $this->publishes([
+            __DIR__.'/Install/Exceptions' => base_path('app/Exceptions'),
+        ], 'niftypanel.install');
 
         // Publishing the controllers.
         $this->publishes([
-            __DIR__.'/Controllers' => base_path('app/Http/Controllers'),
-        ], 'niftypanel.controllers');
+            __DIR__.'/Install/Controllers' => base_path('app/Http/Controllers'),
+        ], 'niftypanel.install');
 
         // Publishing the middleware.
         $this->publishes([
-            __DIR__.'/Controllers' => base_path('app/Http/Middleware'),
-        ], 'niftypanel.middleware');
+            __DIR__.'/Install/Middleware' => base_path('app/Http/Middleware'),
+        ], 'niftypanel.install');
+
+        // Publishing the middleware.
+        $this->publishes([
+            __DIR__.'/Install/Providers/' => base_path('app/Providers'),
+        ], 'niftypanel.install');
 
         // Publishing the models.
         $this->publishes([
-            __DIR__.'/Models' => base_path('app/Models'),
-        ], 'niftypanel.models');
+            __DIR__.'/Install/Models' => base_path('app/Models'),
+        ], 'niftypanel.install');
 
         // Publishing the views.
         $this->publishes([
-            __DIR__.'/../resources/views/intranet' => base_path('resources/views/intranet'),
-        ], 'niftypanel.views');
+            __DIR__.'/Install/Views' => base_path('resources'),
+        ], 'niftypanel.install');
 
-        // Publishing assets.
+        // Publishing the datatabase.
         $this->publishes([
-            __DIR__.'/../resources/assets' => public_path('/'),
-        ], 'niftypanel.views');
+            __DIR__.'/Install/Database' => base_path('database'),
+        ], 'niftypanel.install');
 
-        // Publishing the translation files.
+        // Publishing the datatabase.
         $this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('resources/'),
-        ], 'niftypanel.views');
+            __DIR__.'/Install/Routes' => base_path('routes'),
+        ], 'niftypanel.install');
 
-        // Registering package commands.
-        // $this->commands([]);
+        // Publishing the assets.
+//        $this->publishes([
+//            __DIR__.'/Install/Assets' => public_path('/'),
+//        ], 'niftypanel.install');
+
     }
 }
