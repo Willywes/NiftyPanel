@@ -8,11 +8,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class Customer extends Authenticatable
 {
-    use HasRoles;
+    //use HasRoles;
 
-    protected $guard_name = 'intranet';
+    protected $guard_name = 'customer';
 
     use Notifiable;
 
