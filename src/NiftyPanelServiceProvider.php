@@ -59,7 +59,7 @@ class NiftyPanelServiceProvider extends ServiceProvider
         // Publishing the configuration file.
         $this->publishes([
             __DIR__.'/../config/niftypanel.php' => config_path('niftypanel.php'),
-        ], 'niftypanel.install');
+        ], 'config');
 
         // Publishing the exceptions.
         $this->publishes([

@@ -6,7 +6,8 @@
         {
             "name": "Alejandro Isla",
             "email": "willywes@hotmail.cl",
-            "homepage": "http://alejandroisla.cl"
+            "homepage": "http://alejandroisla.cl",
+            "role": "Developer"
         }
     ],
     "homepage": "https://github.com/willywes/niftypanel",
@@ -23,14 +24,19 @@
         "sempro/phpunit-pretty-print": "^1.0"
     },
     "autoload": {
+        "exclude-from-classmap": ["/Install/"],
         "psr-4": {
             "Willywes\\NiftyPanel\\": "src/"
         }
     },
     "autoload-dev": {
+        "exclude-from-classmap": ["/Install/"],
         "psr-4": {
             "Willywes\\NiftyPanel\\Tests\\": "tests"
         }
+    },
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "laravel": {
